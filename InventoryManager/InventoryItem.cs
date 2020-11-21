@@ -32,6 +32,15 @@ namespace InventoryManager
             this.stock = stock;
         }
 
+        public InventoryItem(InventoryItem item)
+        {
+            this.itemName = item.getItemName();
+            this.itemDescr = item.getDescr();
+            this.itemNum = item.getItemNum();
+            this.price = item.getPrice();
+            this.stock = item.getStock();
+        }
+
 
         //getter and setter methods for variables
         public int getItemNum()
@@ -83,18 +92,13 @@ namespace InventoryManager
         {
             this.stock = stock;
         }
-
-        //goes through each item in the List and prints out all values
-        public static void showAllItems(List<InventoryItem> items)
+        
+        public static void printItem(InventoryItem item)
         {
-            foreach (InventoryItem item in items)
-            {
-                Console.Write("Item name: " + item.getItemName() + " || ");
-                Console.Write("Item description: " + item.getDescr() + " || ");
-                Console.Write("Item number: " + item.getItemNum() + " || ");
-                Console.Write("Item price: " + item.getPrice() + " || ");
-                Console.WriteLine();
-            }
+            Console.Write("Item name: " + item.getItemName() + " || " + "Item description: " +
+                item.getDescr() + " || " + " Item number: " + item.getItemNum() + " || " + "Price: $" + item.getPrice() +
+                " || " + "Stock count: " + item.getStock());
+            Console.WriteLine();
         }
     }
 }

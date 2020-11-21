@@ -28,6 +28,7 @@ namespace InventoryManager
                 {
                     inventory.Remove(item);
                     success = true;
+                    break;
                 }
             }
             return success;
@@ -76,9 +77,20 @@ namespace InventoryManager
                     {
                         Console.WriteLine("Stock of item is: " + item.getStock());
                     }
-                }
-                else
-                    Console.WriteLine("Item not found");
+                }                
+            }
+        }
+
+        public void showAllItems()
+        {
+            foreach (InventoryItem item in inventory)
+            {
+                Console.Write("Item name: " + item.getItemName() + " || ");
+                Console.Write("Item description: " + item.getDescr() + " || ");
+                Console.Write("Item number: " + item.getItemNum() + " || ");
+                Console.Write("Item price: " + item.getPrice() + " || ");
+                Console.Write("Stock count: " + item.getStock());
+                Console.WriteLine();
             }
         }
     }
